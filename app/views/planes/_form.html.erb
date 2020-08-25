@@ -1,0 +1,14 @@
+<%= form_for @plane, html: {multipart: true} do |f| %>
+
+<%= f.label :name, 'Name:' %>
+<%= f.text_field :name, required: true %>
+<br>
+<%= f.label :rows, 'Number of Rows:' %>
+<%= f.number_field :rows, required: true %>
+<br>
+<%= f.label :name, 'Number of Columns:' %>
+<%= f.number_field :columns, required: true %>
+<br>
+<%= f.submit class:'submit_button' %>
+
+<% end %>

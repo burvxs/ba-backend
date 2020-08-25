@@ -1,2 +1,8 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h2>All Planes</h2>
+<%= link_to "Create a new flight", new_flight_path %>
+<hr>
+  <% @flights.each do |flight| %>
+  <li>
+    <%= link_to flight.flight_number, flight_path(flight.id) %>
+  </li>
+  <% end %>
