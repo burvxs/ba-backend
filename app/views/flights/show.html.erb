@@ -1,2 +1,21 @@
-<h1>Flights#show</h1>
-<p>Find me in app/views/flights/show.html.erb</p>
+<h2> <%= @flight.flight_number %> </h2>
+
+<p>
+  <strong>Flight Number:</strong> <%= @flight.flight_number %>
+</p>
+
+<p>
+  <strong>Origin:</strong> <%= @flight.origin %>
+</p>
+
+<p>
+  <strong>Destination:</strong> <%= @flight.destination %>
+</p>
+
+<p>
+  <strong>Date:</strong> <%= @flight.date %>
+</p>
+
+<p><%= link_to 'Edit', edit_flight_path(@flight) %></p>
+<p><%= link_to 'Delete', flight_path(@flight.id), method: 'delete' %></p>
+<p><%= link_to 'Back', flights_path %>

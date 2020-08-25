@@ -1,0 +1,21 @@
+<%= form_for @flight, html: {multipart: true} do |f| %>
+
+<%= f.label :flight_number, 'Flight Number:' %>
+<%= f.number_field :flight_number, required: true %>
+<br>
+
+<%= f.label :origin, 'Origin:' %>
+<%= f.text_field :origin, required: true %>
+<br>
+
+<%= f.label :destination, 'Destination:' %>
+<%= f.text_field :destination, required: true %>
+<br>
+
+<%= f.label :date, 'Date:' %>
+<%= f.text_field :date, required: true %>
+<br>
+
+<%= f.submit class:'submit_button' %>
+
+<% end %>
