@@ -1,0 +1,9 @@
+<%= form_for @user, html: {multipart: true} do |f| %>
+
+<%= f.label :name, 'Name:' %>
+<%= f.text_field :name, required: true %>
+<br>
+
+<%= f.submit class:'submit_button' %>
+
+<% end %>
