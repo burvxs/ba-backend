@@ -43,12 +43,14 @@ print "Creating Flights..."
 Flight.destroy_all
 
 f1 = Flight.create!(
+  flight_number: 323,
   origin: 'Sydney',
   destination: 'Melbourne',
   date:'18/08/2020'
 )
 
 f2 = Flight.create!(
+  flight_number: 111,
   origin: 'Perth',
   destination: 'Brisbane',
   date:'21/08/2020'
