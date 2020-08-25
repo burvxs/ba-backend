@@ -39,25 +39,23 @@ p2 = Plane.create!(
 
 puts "Created #{ Plane.count } planes:"
 
-
 print "Creating Flights..."
 Flight.destroy_all
 
 f1 = Flight.create!(
-  plane_id: 23,
-  flight_number: 327,
   origin: 'Sydney',
   destination: 'Melbourne',
   date:'18/08/2020'
 )
 
 f2 = Flight.create!(
-  plane_id: 45,
-  flight_number: 268,
   origin: 'Perth',
   destination: 'Brisbane',
   date:'21/08/2020'
 )
+
+p1.flights << f1
+p2.flights << f2
 
 puts "Created #{ Flight.count } flights:"
 
@@ -65,17 +63,18 @@ print "Creating Reservations..."
 Reservation.destroy_all
 
 r1 = Reservation.create!(
-  flight_number: 235,
   origin: 'London',
   destination: 'Texas',
   date:'03/10/2020'
 )
 
 r2 = Reservation.create!(
-  flight_number: 248,
   origin: 'New York',
   destination: 'L.A',
   date:'13/07/2020'
 )
+
+f1.reservations << r1
+f2.reservations << r2
 
 puts "Created #{ Reservation.count } reservations:"
