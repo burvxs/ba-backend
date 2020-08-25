@@ -12,6 +12,15 @@ class FlightsController < ApplicationController
     end
   end
 
+  def get_reserves
+    reserve = Reservation.find_by origin: params[:to], destination: params[:from]
+    puts "RESERVE: #{reserve}"
+    render :json => {
+      reserve_data: reserve,
+      flight_data: reserve.flight
+    }
+  end
+
   def show
   end
 
