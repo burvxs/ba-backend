@@ -7,13 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create user_params
-
-    if @user.persisted?
-        session[:user_id] = @user.id # log in the newly created account automatically!
-        redirect_to users_path
-      else
-        render :new
-      end
+    redirect_to users_path
   end
 
   # READ #############################
@@ -22,20 +16,26 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.all
     @user = User.find params[:id]
   end
 
 # UPDATE #############################
   def edit
+    @user = User.find params[:id]
   end
 
   def update
+    user = User.find params[:id]
+
+    user.update user_params
+
+    redirect_to user_path
   end
 
 # DESTROY #############################
   def destroy
-    User.destroy params[:id]
+    user = User.find params[:id]
+    user.destroy
     redirect_to users_path
   end
 

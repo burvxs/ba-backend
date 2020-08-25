@@ -1,8 +1,9 @@
 <h2>All Users</h2>
-<ul>
+<%= link_to "Create a new user", new_user_path %>
+<hr>
   <% @users.each do |user| %>
-    <%= link_to user.name, user_path(user.id) %>
-    <%= user.admin %>
-    <%= link_to 'Delete Profile', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <li>
+      <%= link_to user.name, user_path(user.id) %>
+      <%= user.admin %>
+    </li>
   <% end %>
-</ul>
