@@ -128,12 +128,191 @@ f6 = Flight.create!(
   date:'23/09/2020'
 )
 
-p1.flights << f1
-p2.flights << f2 << f3 << f1
-p3.flights << f3
-p4.flights << f4 << f5
-p5.flights << f5
-p6.flights << f6 << f1 << f3
+f7 = Flight.create!(
+  flight_number: 101,
+  origin: 'Sydney',
+  destination: 'London',
+  date:'27/08/2020'
+)
+
+f8 = Flight.create!(
+  flight_number: 102,
+  origin: 'Sydney',
+  destination: 'Madrid',
+  date:'27/08/2020'
+)
+f9 = Flight.create!(
+  flight_number: 131,
+  origin: 'Sydney',
+  destination: 'Amsterdam',
+  date:'27/08/2020'
+)
+f10 = Flight.create!(
+  flight_number: 501,
+  origin: 'Sydney',
+  destination: 'Osaka',
+  date:'27/08/2020'
+)
+f11 = Flight.create!(
+  flight_number: 141,
+  origin: 'Sydney',
+  destination: 'Kyoto',
+  date:'27/08/2020'
+)
+
+f12 = Flight.create!(
+  flight_number: 121,
+  origin: 'Brisbane',
+  destination: 'Vienna',
+  date:'27/08/2020'
+)
+f13 = Flight.create!(
+  flight_number: 431,
+  origin: 'Brisbane',
+  destination: 'London',
+  date:'27/08/2020'
+)
+
+f14 = Flight.create!(
+  flight_number: 854,
+  origin: 'Brisbane',
+  destination: 'Perth',
+  date:'27/08/2020'
+)
+
+f15 = Flight.create!(
+  flight_number: 853,
+  origin: 'Brisbane',
+  destination: 'Vienna',
+  date:'27/08/2020'
+)
+
+f16 = Flight.create!(
+  flight_number: 833,
+  origin: 'Melbourne',
+  destination: 'Rome',
+  date:'27/08/2020'
+)
+
+f17 = Flight.create!(
+  flight_number: 692,
+  origin: 'Melbourne',
+  destination: 'Cairo',
+  date:'27/08/2020'
+)
+f18 = Flight.create!(
+  flight_number: 539,
+  origin: 'Melbourne',
+  destination: 'Madrid',
+  date:'27/08/2020'
+)
+f19 = Flight.create!(
+  flight_number: 101,
+  origin: 'Melbourne',
+  destination: 'Sydney',
+  date:'27/08/2020'
+)
+
+f20 = Flight.create!(
+  flight_number: 124,
+  origin: 'Sydney',
+  destination: 'Melbourne',
+  date:'28/08/2020'
+)
+
+f21 = Flight.create!(
+  flight_number: 430,
+  origin: 'Sydney',
+  destination: 'Barcelona',
+  date:'28/08/2020'
+)
+
+f22 = Flight.create!(
+  flight_number: 968,
+  origin: 'Sydney',
+  destination: 'Beijing',
+  date:'28/08/2020'
+)
+
+f23 = Flight.create!(
+  flight_number: 005,
+  origin: 'Sydney',
+  destination: 'Hong Kong',
+  date:'28/08/2020'
+)
+
+f24 = Flight.create!(
+  flight_number: 332,
+  origin: 'Melbourne',
+  destination: 'Sydney',
+  date:'28/08/2020'
+)
+
+f25 = Flight.create!(
+  flight_number: 583,
+  origin: 'Melbourne',
+  destination: 'Hobart',
+  date:'27/08/2020'
+)
+
+f26 = Flight.create!(
+  flight_number: 758,
+  origin: 'Melbourne',
+  destination: 'Brisbane',
+  date:'28/08/2020'
+)
+
+f27 = Flight.create!(
+  flight_number: 249,
+  origin: 'Melbourne',
+  destination: 'Madrid',
+  date:'27/08/2020'
+)
+
+f28 = Flight.create!(
+  flight_number: 584,
+  origin: 'Brisbane',
+  destination: 'Sydney',
+  date:'28/08/2020'
+)
+
+f29 = Flight.create!(
+  flight_number: 573,
+  origin: 'Brisbane',
+  destination: 'Madrid',
+  date:'28/08/2020'
+)
+
+f30 = Flight.create!(
+  flight_number: 282,
+  origin: 'Brisbane',
+  destination: 'Melbourne',
+  date:'28/08/2020'
+)
+
+f31 = Flight.create!(
+  flight_number: 950,
+  origin: 'Brisbane',
+  destination: 'Sydney',
+  date:'28/08/2020'
+)
+
+f32 = Flight.create!(
+  flight_number: 342,
+  origin: 'Brisbane',
+  destination: 'Perh',
+  date:'28/08/2020'
+)
+
+
+
+
+p1.flights << f1 << f7 << f8 << f22 << f23
+p2.flights << f2 << f3 << f1 << f9 << f21 << f24 << f32
+p3.flights << f3 << f10 << f12 << f20 << f25 << f31
+p4.flights << f4 << f5 << f11 << f16 << f19 << f30
+p5.flights << f5 << f13 << f15 << f18 << f26 << f29
+p6.flights << f6 << f1 << f3 << f14 << f17 << f27 << f28
 
 puts "Created #{ Flight.count } flights:"
 
