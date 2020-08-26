@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   # Flight API route for JS/React to capture
   get "/flights/:to/:from/:date" => "flights#get_reserves", :as => "reserves"
+
+  # Origin API route for JS/React to capture
+  get "/flights/origin/destination" => "flights#get_origins_destinations", :as => "od"
 end

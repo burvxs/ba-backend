@@ -55,7 +55,7 @@ skip_before_action :verify_authenticity_token, raise: false
         flight_data: flights,
         no_result: false
       }
-    else 
+    else
       render :json => {
         no_result: true,
         fail_text: "No flight results"
@@ -63,8 +63,19 @@ skip_before_action :verify_authenticity_token, raise: false
     end
   end
 
-  def get_origins
+  def get_origins_destinations
+    origin_array = []
+    destination_array = []
 
+    Flight.all.each do |fl|
+      origin_array << fl.origin
+      destination_array << fl.destination
+    end
+
+      render: :json => {
+        origins: origin_array.uniq,
+        destinations: destination_array.uniq
+      }
   end
 
   def show
