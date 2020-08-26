@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "/planes/:id/seats" => "planes#seats", :as => "seats"
 
   # Flight API route for JS/React to capture
-  get "/flights/:to/:from" => "flights#get_reserves", :as => "reserves"
+  get "/flights/:to/:from/:date" => "flights#get_reserves", :as => "reserves"
 end

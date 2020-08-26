@@ -48,12 +48,11 @@ skip_before_action :verify_authenticity_token, raise: false
   end
 
   def get_reserves
-    flight = Flight.find_by origin: params[:to], destination: params[:from], date: params[:date]
-
-    if flight.present?
+    date = Date.parse params[:date]
+    flights = Flight.where origin: params[:to], destination: params[:from], date: params[:date]
+    if flights.present?
       render :json => {
-        reserve_data: flight.reservations,
-        flight_data: flight,
+        flight_data: flights,
         no_result: false
       }
     else 
