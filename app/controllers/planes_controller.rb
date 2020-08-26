@@ -37,13 +37,6 @@ class PlanesController < ApplicationController
     plane.destroy
     redirect_to planes_path
   end
-
-  private
-
-  def plane_params
-    params.require( :plane ).permit( :name, :rows, :columns  )
-  end
-
 =begin
     This method renders JSON plane data to be captured 
     by the front-end. React will loop over every seat object 
@@ -52,7 +45,6 @@ class PlanesController < ApplicationController
 =end
   def seats
     plane = Plane.find params[:id]
-
     render :json => {
       :plane_data => {
         rows: plane.rows,
@@ -60,5 +52,11 @@ class PlanesController < ApplicationController
         seat_data: plane.get_seats
       }
     }
+  end
+  
+  private
+
+  def plane_params
+    params.require( :plane ).permit( :name, :rows, :columns  )
   end
 end
