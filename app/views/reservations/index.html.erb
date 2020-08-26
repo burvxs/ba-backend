@@ -1,2 +1,8 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<h2>All Reservations</h2>
+<%= link_to "Create a new plane", new_reservation_path %>
+<hr>
+  <% @reservations.each do |reservation| %>
+  <li>
+    <%= link_to reservation.date, reservation_path(reservation.id) %>
+  </li>
+  <% end %>
