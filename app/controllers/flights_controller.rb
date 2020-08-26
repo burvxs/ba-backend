@@ -30,6 +30,7 @@ class FlightsController < ApplicationController
 #   end
 # end
 
+skip_before_action :verify_authenticity_token, raise: false
 # CREATE ###########################
   def new
     @flight = Flight.new
