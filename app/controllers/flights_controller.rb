@@ -50,10 +50,17 @@ skip_before_action :verify_authenticity_token, raise: false
   def get_reserves
     flight = Flight.find_by origin: params[:to], destination: params[:from]
 
-    render :json => {
-      reserve_data: flight.reservations,
-      flight_data: flight
-    }
+    if flight.present?
+      render :json => {
+        reserve_data: flight.reservations,
+        flight_data: flight
+      }
+    else 
+      render :json => {
+        no_result: true,
+        fail_text: "No flight results"
+      }
+    end
   end
 
   def show
