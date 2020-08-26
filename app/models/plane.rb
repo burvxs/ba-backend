@@ -13,13 +13,23 @@ class Plane < ApplicationRecord
          }
       end
    end
-
+=begin
+   'get_seats' returns the seat_data array which contains
+   a row hash which defines whether or not the seat is reserved
+   and who has reserved it. See flights_controller for more information 
+   on how this method is utilized.
+=end
    def get_seats
       seat_data = Array.new(self.rows)
       seat_data.map! do |row| 
+         is_reserved = [true, false].sample
+         reservee = 'Empty'
+         if is_reserved
+            reservee = [User.first.name, User.second.name].sample
+         end
          row = {
-            is_reserved: [true, false].sample,
-            reservee: [User.first.name, "Empty", User.second.name].sample
+            is_reserved: is_reserved,
+            reservee: reservee
          }
       end
 
