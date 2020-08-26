@@ -1,2 +1,19 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<h2> <%= @reservation.date %> </h2>
+
+<p>
+  <strong>Flight Date:</strong> <%= @reservation.date %>
+</p>
+
+<p>
+  <strong>Origin:</strong> <%= @reservation.origin %>
+</p>
+
+<p>
+  <strong>Destination:</strong> <%= @reservation.destination %>
+</p>
+
+
+
+<p><%= link_to 'Edit', edit_reservation_path(@reservation) %></p>
+<p><%= link_to 'Delete', reservation_path(@reservation.id), method: 'delete' %></p>
+<p><%= link_to 'Back', reservations_path %>

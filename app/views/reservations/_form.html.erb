@@ -1,0 +1,17 @@
+<%= form_for @reservation, html: {multipart: true} do |f| %>
+
+<%= f.label :date, 'Flight Date:' %>
+<%= f.text_field :date, required: true %>
+<br>
+
+<%= f.label :origin, 'Origin:' %>
+<%= f.text_field :origin, required: true %>
+<br>
+
+<%= f.label :destination, 'Destination:' %>
+<%= f.text_field :destination, required: true %>
+<br>
+
+<%= f.submit class:'submit_button' %>
+
+<% end %>

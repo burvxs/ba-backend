@@ -6,6 +6,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = Reservation.new reservation_params
+    @reservation.save
     redirect_to reservations_path
   end
 
