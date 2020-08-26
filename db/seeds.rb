@@ -300,7 +300,7 @@ f31 = Flight.create!(
 f32 = Flight.create!(
   flight_number: 342,
   origin: 'Brisbane',
-  destination: 'Perh',
+  destination: 'Perth',
   date:'28/08/2020'
 )
 

@@ -72,7 +72,7 @@ skip_before_action :verify_authenticity_token, raise: false
       destination_array << fl.destination
     end
 
-      render: :json => {
+      render :json => {
         origins: origin_array.uniq,
         destinations: destination_array.uniq
       }
