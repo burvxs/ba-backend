@@ -1,4 +1,6 @@
 class PlanesController < ApplicationController
+  skip_before_action :verify_authenticity_token, raise: false
+
   # CREATE ############################################
   def new
     @plane = Plane.new
@@ -37,6 +39,17 @@ class PlanesController < ApplicationController
     plane.destroy
     redirect_to planes_path
   end
+
+  def set_seat_data
+    plane = Plane.find params[:id]
+    seat_data = params[:seats]
+    plane.set_seats seat_data
+
+    render :json => {
+        seat_data: plane.get_seats,
+        plane_data: plane
+    }
+  end
 =begin
     This method renders JSON plane data to be captured 
     by the front-end. React will loop over every seat object 
@@ -49,7 +62,7 @@ class PlanesController < ApplicationController
       :plane_data => {
         rows: plane.rows,
         columns: plane.columns,
-        seat_data: plane.get_seats
+        seat_data: plane.new_seats
       }
     }
   end
