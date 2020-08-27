@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   # Origin API route for JS/React to capture
   get "/flights/origin/destination" => "flights#get_origins_destinations", :as => "od"
+
+  get "/planes/:id/staticseats" => "planes#static_seats", :as => "static"
 end
