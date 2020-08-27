@@ -1,17 +1,9 @@
 class Plane < ApplicationRecord
    has_many :flights
+   attr_accessor :seats
 
-   def set_seat(row, column, is_reserved, reservee)
-      if row > self.rows || column > self.columns
-         puts "Row does not comply with this planes row count"
-      else
-         seat_data = {
-            row: row,
-            column: column,
-            is_reserved: is_reserved,
-            reservee: reservee
-         }
-      end
+   def set_seats(seats)
+      @seats = seats
    end
 =begin
    'get_seats' returns the seat_data array which contains
@@ -19,9 +11,9 @@ class Plane < ApplicationRecord
    and who has reserved it. See flights_controller for more information 
    on how this method is utilized.
 =end
-   def get_seats
-      seat_data = Array.new(self.rows)
-      seat_data.map! do |row| 
+   def new_seats
+      @seats = Array.new(self.rows)
+      @seats.map! do |row| 
          is_reserved = [true, false].sample
          reservee = 'Empty'
          if is_reserved
@@ -34,9 +26,13 @@ class Plane < ApplicationRecord
       end
 
       puts "Populated seating array with seat data."
-      puts "Created #{seat_data.length} dummy seats."
+      puts "Created #{@seats.length} dummy seats."
       puts "Out of #{self.rows} rows and #{self.columns} columns"
 
-      seat_data
+      @seats
+   end
+
+   def get_seats 
+      self.seats
    end
 end

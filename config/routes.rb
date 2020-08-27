@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # Seats API route for JS/React to capture
   get "/planes/:id/seats" => "planes#seats", :as => "seats"
+  post "planes/:id/seats" => "planes#set_seat_data", :as => "set_seat"
 
   # Flight API route for JS/React to capture
   get "/flights/:to/:from/:date" => "flights#get_reserves", :as => "reserves"
