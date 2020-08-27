@@ -41,41 +41,6 @@ class PlanesController < ApplicationController
     redirect_to planes_path
   end
 
-  def set_seat_data
-    plane = Plane.find params[:id]
-    seat_data = params[:seats]
-    plane.set_seats seat_data
-
-    render :json => {
-        seat_data: plane.get_seats,
-        plane_data: plane
-    }
-  end
-=begin
-    This method renders JSON plane data to be captured
-    by the front-end. React will loop over every seat object
-    and style the grid item based on the "plane.get_seats" method
-    call which returns a hash of seat info like: is_reserved and reservee
-=end
-  def seats
-    plane = Plane.find params[:id]
-    render :json => {
-      :plane_data => {
-        rows: plane.rows,
-        columns: plane.columns,
-        seat_data: plane.new_seats
-      }
-    }
-  end
-
-  def static_seats
-    plane = Plane.find params[:id]
-    render json: {
-      seat_data: plane.get_seats,
-      plane_data: plane
-    }
-  end
-
   private
 
   def plane_params

@@ -78,6 +78,41 @@ skip_before_action :verify_authenticity_token, raise: false
         destinations: destination_array.uniq
       }
   end
+    def set_seat_data
+    flight = Flight.find params[:id]
+    seat_data = params[:seat]
+    puts "SEATSSSS: #{flight.seats}"
+    puts "INDEX: #{params[:index]}"
+    flight.seats[params[:index]].update reservee: seat_data["reservee"], is_reserved: seat_data["is_reserved"]
+    flight.save
+    render :json => {
+        seat_data: flight.seats 
+    }
+  end
+
+=begin
+    This method renders JSON plane data to be captured
+    by the front-end. React will loop over every seat object
+    and style the grid item based on the "plane.get_seats" method
+    call which returns a hash of seat info like: is_reserved and reservee
+=end
+  def seats
+    flight = Flight.find params[:id]
+    render :json => {
+      :flight_data => {
+        rows: flight.plane.rows,
+        columns: flight.plane.columns,
+        seat_data: flight.seats 
+      }
+    }
+  end
+
+  def static_seats
+    flight = Flight.find params[:id]
+    render json: {
+      seat_data: flight.seats
+    }
+  end
 
   def show
     @flight = Flight.find params[:id]

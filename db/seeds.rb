@@ -304,7 +304,38 @@ f32 = Flight.create!(
   date:'28/08/2020'
 )
 
-
+f1.new_seats
+f2.new_seats
+f3.new_seats
+f4.new_seats
+f5.new_seats
+f6.new_seats
+f7.new_seats
+f8.new_seats
+f9.new_seats
+f10.new_seats
+f11.new_seats
+f12.new_seats
+f13.new_seats
+f14.new_seats
+f15.new_seats 
+f16.new_seats 
+f17.new_seats
+f18.new_seats
+f19.new_seats
+f20.new_seats
+f21.new_seats
+f22.new_seats
+f23.new_seats
+f24.new_seats
+f25.new_seats
+f26.new_seats
+f27.new_seats
+f28.new_seats
+f29.new_seats
+f30.new_seats
+f31.new_seats
+f32.new_seats
 
 
 p1.flights << f1 << f7 << f8 << f22 << f23

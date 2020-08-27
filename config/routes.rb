@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :flights
 
   # Seats API route for JS/React to capture
-  get "/planes/:id/seats" => "planes#seats", :as => "seats"
-  post "planes/:id/seats" => "planes#set_seat_data", :as => "set_seat"
+  get "/flights/:id/seats" => "flights#seats", :as => "seats"
+  post "/flights/:id/seats" => "flights#set_seat_data", :as => "set_seat"
 
   # Flight API route for JS/React to capture
   get "/flights/:to/:from/:date" => "flights#get_reserves", :as => "reserves"
@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   # Origin API route for JS/React to capture
   get "/flights/origin/destination" => "flights#get_origins_destinations", :as => "od"
 
-  get "/planes/:id/staticseats" => "planes#static_seats", :as => "static"
+  get "/flights/:id/staticseats" => "flights#static_seats", :as => "static"
 end
